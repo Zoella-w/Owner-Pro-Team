@@ -1,0 +1,485 @@
+@font-face {
+  font-family: "optima";
+  src: url("../font/optima.ttf");
+}
+
+@font-face {
+  font-family: "siyuansong";
+  src: url("../font/siyuansong.ttf");
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+/* 滚动条样式 */
+body::-webkit-scrollbar-track,
+.person-content::-webkit-scrollbar-track {
+  box-shadow: none;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+body::-webkit-scrollbar-thumb,
+.person-content::-webkit-scrollbar-thumb {
+  box-shadow: none;
+  border-radius: 5px;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #555;
+}
+
+body::-webkit-scrollbar {
+  width: 13px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.person-content::-webkit-scrollbar {
+  width: 5px;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+/* 导航栏 */
+.nav-header {
+  z-index: 100;
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  position: fixed;
+}
+
+.nav-header span {
+  display: inline-flex;
+  height: 50px;
+  flex: 1;
+}
+
+.nav {
+  font-size: 19px;
+  letter-spacing: 2px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform 0.25s;
+  font-family: "siyuansong";
+}
+
+.nav::before,
+.nav::after {
+  position: absolute;
+  height: 50px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  box-shadow: 1px 1px 4px 1px;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.gs::before,
+.gs::after {
+  content: "简介";
+}
+
+.xc::before,
+.xc::after {
+  content: "徐宸";
+}
+
+.wyy::before,
+.wyy::after {
+  content: "王玥莹";
+}
+
+.ymcx::before,
+.ymcx::after {
+  content: "尹茂椿萱";
+}
+
+.yyc::before,
+.yyc::after {
+  content: "杨雨辰";
+}
+
+.nav::before {
+  color: #000;
+  opacity: 0.9;
+  background-color: rgb(255, 255, 230, 0.9);
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+.nav::after {
+  color: #fff;
+  background-color: rgb(100, 80, 100, 0.86);
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.nav:hover {
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+/* 点赞动画 */
+.like-container {
+  position: fixed;
+  width: 69px;
+  top: 40%;
+  right: 4%;
+  text-align: center;
+}
+
+.like {
+  height: 57px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.like i {
+  cursor: pointer;
+  padding: 11px 16px 9px;
+  background: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 0 15px;
+  color: #aaa;
+  transition: 0.2s;
+  font-size: 26px;
+}
+
+.like i:hover {
+  color: #666;
+}
+
+.like i:before {
+  content: "\2764";
+  font-style: normal;
+}
+
+.like span {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  visibility: hidden;
+  transition: 0.6s;
+  font-size: 2px;
+  color: transparent;
+  font-weight: 700;
+  font-family: "optima";
+}
+
+.like i.press {
+  animation: size 0.4s;
+  color: #e23b3b;
+}
+
+.like span.press {
+  bottom: 70px;
+  font-size: 22px;
+  visibility: visible;
+  animation: fade 1s;
+}
+
+@keyframes fade {
+  0% {
+    color: transparent;
+  }
+  50% {
+    color: #e23b3b;
+  }
+  100% {
+    color: transparent;
+  }
+}
+
+@keyframes size {
+  0% {
+    padding: 11px 16px 9px;
+  }
+  50% {
+    padding: 15px 20px 12px;
+    margin-top: -4px;
+  }
+  100% {
+    padding: 11px 16px 9px;
+  }
+}
+
+.like-num {
+  color: #fff;
+}
+
+/* 上方页面 */
+.top-wrapper {
+  position: sticky;
+  z-index: -10;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: calc(100vh);
+  background: url(/images/background2.png);
+  background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  background-position: center 0;
+}
+
+.group-intro {
+  float: left;
+  margin: 150px 180px;
+  color: #333;
+  font-size: 50px;
+}
+
+.top-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.about-us {
+  float: right;
+  margin: 350px 120px;
+  padding: 30px;
+  width: 240px;
+  height: 150px;
+  border: 6px outset #fff;
+  font-size: 68px;
+  color: #fff;
+  font-family: "optima";
+  border-radius: 5px;
+}
+
+/* 动态箭头 */
+.arrow,
+.arrow::before {
+  position: absolute;
+  left: 50%;
+}
+
+.arrow {
+  width: 50px;
+  height: 50px;
+  top: 85%;
+  margin: -20px 0 0 -20px;
+  transform: none;
+  -webkit-transform: rotate(45deg);
+  border: 4px #fff solid;
+  border-left: none;
+  border-top: none;
+}
+
+.arrow::before {
+  content: "";
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  border: 3px #fff solid;
+  border-top: none;
+  border-left: none;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: arrow;
+}
+
+@keyframes arrow {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-10px, -10px);
+  }
+}
+
+.member {
+  height: 85px;
+  color: #fff;
+  font-size: 40px;
+  font-family: "siyuansongti";
+  margin: 0 0 4% 12%;
+}
+
+.member img {
+  vertical-align: middle;
+  display: inline-block;
+  width: 88px;
+  height: 85px;
+}
+
+.member span {
+  vertical-align: middle;
+}
+
+/* 锚点 */
+#person1,
+#person2,
+#person3,
+#person4 {
+  position: relative;
+  top: -35vh;
+}
+
+/* 下方页面 */
+.bottom-wrapper {
+  padding: 7% 0 6% 0;
+  background-image: linear-gradient(to bottom right, #6d6e87, #83849b);
+}
+
+.content-wrapper {
+  margin: 0 13%;
+  padding-top: 18vh;
+  padding-bottom: 1px;
+  background-image: url("/images/background3.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 8px -5px 15px 8px #303443;
+  border-radius: 20px;
+}
+
+.content-container {
+  margin: 0 auto;
+  width: 85%;
+}
+
+.person-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 20vh;
+}
+
+.person-img {
+  width: 240px;
+  height: 300px;
+  border-radius: 5px;
+}
+
+.left,
+.right {
+  width: 40px;
+}
+
+.name {
+  font-size: 30px;
+  color: #fae1c2;
+  font-family: "siyuansong";
+}
+
+.name:hover {
+  color: orange;
+}
+
+.person-container {
+  flex: 1;
+  display: inline-block;
+  margin: 0 40px;
+}
+
+.person-box {
+  display: block;
+  position: relative;
+  height: 253px;
+  background: #111845a6;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 2px solid #2a3cad;
+  color: white;
+  padding: 20px;
+  margin-top: 4px;
+}
+
+.person-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: 0.5s;
+  pointer-events: none;
+}
+
+.person-box span {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+.person-box span:nth-child(1) {
+  transform: rotate(180deg);
+}
+
+.person-box span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #50dfdb;
+  animation: animate 4s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.1% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.person-content {
+  overflow-y: auto;
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  border: 1px solid #f0a591;
+  padding: 5px 20px 0 20px;
+  box-shadow: 0 5px 10px rgba(9, 0, 0, 0.5);
+  line-height: 35px;
+  font-size: 19px;
+  font-family: "siyuansong";
+}
+
+.thx {
+  width: 45vh;
+  margin: 0 auto;
+  margin-top: 10vh;
+  color: #fff;
+  font-size: 40px;
+  font-family: "optima";
+}
+
+.thx::after {
+  content: "\2764";
+}
+
+.thx:hover {
+  color: pink;
+}

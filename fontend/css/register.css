@@ -1,0 +1,81 @@
+body{
+    margin: 0;
+}
+
+a:visited {
+    color: white;
+    text-decoration: none;
+  }
+  
+  a:link {
+    color: white;
+    text-decoration: none;
+  }
+  
+.smaller_box {
+    width: 25%;
+    height: 32%;
+    margin-left: 38%;
+    margin-top: 18%;
+    background-color: rgba(0,0,0, 0.8);
+    overflow: hidden;
+    border-radius: 30px;
+    border: 2px solid #00a1ff;
+  
+  }
+  
+  .name {
+    color: white;
+    text-align: center;
+    margin-top: 10%;
+    font-size: 30px;
+  }
+  
+  .input_box {
+    margin-top: 5%;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+  }
+  
+  #uname {
+    height: 25px;
+    border-radius: 20px;
+    margin-bottom: 1%;
+    padding-left: 3px;
+  }
+  
+  #upass {
+    height: 25px;
+    border-radius: 20px;
+    margin-bottom: 1%;
+    padding-left: 3px;
+  }
+  
+  .register {
+    margin-left: 60%;
+    margin-top: 3%;
+  }
+  
+  .submit_button {
+    margin-left: 25%;
+    margin-top: 3%;
+    width: 50%;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #269bf4;
+    color: white;
+  }
+
+  .back {
+    width: 100%;
+    height: calc(100vh);
+    background: #000;
+    background: url(/images/002.jpg) no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+    background-position: center 0;
+    overflow: hidden;
+    z-index:10;
+  }
